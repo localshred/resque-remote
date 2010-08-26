@@ -30,7 +30,9 @@ Feedback, comments and questions are welcome at bj [dot] neilsen [at] gmail [dot
   s.add_development_dependency 'bundler', '1.0.0.rc.6'
   s.add_development_dependency 'rspec', '2.0.0.beta.20'
   s.add_development_dependency 'resque', '1.10.0'
-  s.add_development_dependency 'resque_spec'
+  s.add_development_dependency 'redis'
+  s.add_development_dependency 'redis-namespace'
+  s.add_development_dependency 'yajl-ruby'
 
   s.files        = `git ls-files`.split("\n")
   s.require_path = 'lib'
