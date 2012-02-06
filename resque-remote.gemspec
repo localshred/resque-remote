@@ -10,6 +10,9 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://github.com/localshred/resque-remote'
   s.summary     = 'Resque plugin to allow remote job droppability'
   s.description = %Q{
+Note: Resque-remote is not needed in resque >= 0.18 as `enqueue_at` became a standard
+API method which does exactly what resque-remote aims to provide.
+
 Resque is great. So is job processing with redis. Our biggest drawback has been that
 resque requires the class that will be processing a job to be loaded when the job 
 is enqueued. But what happens when the implementing job is defined in a separate application
@@ -27,12 +30,13 @@ Feedback, comments and questions are welcome at bj [dot] neilsen [at] gmail [dot
   s.required_rubygems_version = '>= 1.3.6'
   s.rubyforge_project         = 'resque-remote'
 
-  s.add_development_dependency 'bundler', '1.0.0.rc.6'
-  s.add_development_dependency 'rspec', '2.0.0.beta.20'
-  s.add_development_dependency 'resque', '1.10.0'
-  s.add_development_dependency 'redis'
-  s.add_development_dependency 'redis-namespace'
-  s.add_development_dependency 'yajl-ruby'
+  s.add_dependency 'resque', '< 1.18.0'
+  
+  s.add_development_dependency 'bundler', '~> 1.0'
+  s.add_development_dependency 'rspec', '~> 2.8'
+  # s.add_development_dependency 'redis'
+  # s.add_development_dependency 'redis-namespace'
+  # s.add_development_dependency 'yajl-ruby'
 
   s.files        = `git ls-files`.split("\n")
   s.require_path = 'lib'
