@@ -1,5 +1,4 @@
-> **Please note that Resque Remote depends on Resque versions < 1.18.0. resque-remote is not necessary in Resque >= 1.18 as `Resque.enqueue_at` became a standard
-API method which does exactly what resque-remote aims to provide.**
+> **Please note that Resque Remote depends on Resque versions < 1.18.0. Resque has a new "remote" API in master that has not been bundled into a gem yet. When it does, resque-remote will only be useful if you cannot use the newer version. I'll update this README when the new version of Resque is posted.**
 
 Resque Remote is a plugin to allow remote job droppability. Try saying that 10 times fast.
 
