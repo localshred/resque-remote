@@ -6,7 +6,7 @@ Resque Remote's simple goal is to allow you to add a job to a queue with a strin
 
 # Installation
 
-**Note: You must have a version of Resque installed or added to your Gemfile for Resque Remote to work. Resque Version 0.10.0 has been tested to work with the current release of Resque Remote.**
+**NOTE: Resque-remote is compatible with Resque 1.x but unnececssary for >= 2.x. If you are using Resque 2.x, use the standard API method Resque.push instead.**
 
 Install the gem ad-hoc:
 
@@ -16,7 +16,7 @@ Install the gem ad-hoc:
 Or, add it to your Bundler `Gemfile`:
 
 	# Gemfile
-	gem 'resque', '0.10.0'
+	gem 'resque', '< 2.0'
 	gem 'resque-remote'
 
 And then run a `bundle install`.
@@ -33,11 +33,11 @@ If you're using bundler, just setup your gemset normally.
 ## (De)Queueing
 To queue a job, tell resque to `remote_enqueue` your job by passing the string representation of your job's class name, the name of the queue to use, and whatever parameters are appropriate for the job.
 
-	Resque.remote_enqueue('MyJobClass', :low_priority, param1, param2, ...)
+	Resque.remote_enqueue('UpdateStockTicker', :ticker_low, param1, param2, ...)
 
 To dequeue, call `remote_dequeue` instead:
 
-	Resque.remote_dequeue('MyJobClass', :low_priority, param1, param2, ...)
+	Resque.remote_dequeue('UpdateStockTicker', :ticker_low, param1, param2, ...)
 
 ## Worker processing
 
@@ -45,7 +45,7 @@ Resque Remotes purpose is to make remote job processing doable. Hence, your work
 
 Note that the queue this job belongs to isn't defined in our job class because it's metadata that Resque uses when it first queues the job, which we've already done. So, no `@queue = :low_priority` needed here.
 
-	class MyJobClass
+	class UpdateStockTicker
 		# no queue needed
 
 		def self.perform(param1, param2)

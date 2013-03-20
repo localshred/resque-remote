@@ -8,8 +8,10 @@ Gem::Specification.new do |s|
   s.authors     = ['BJ Neilsen']
   s.email       = ['bj.neilsen@gmail.com']
   s.homepage    = 'http://github.com/localshred/resque-remote'
-  s.summary     = 'Resque plugin to allow remote job droppability'
+  s.summary     = 'Resque plugin to allow remote job droppability compatible with Resque 1.x'
   s.description = %Q{
+Compatible with Resque 1.x. Use Resque.push if you are using >= 2.x.
+
 Resque is great. So is job processing with redis. Our biggest drawback has been that
 resque requires the class that will be processing a job to be loaded when the job
 is enqueued. But what happens when the implementing job is defined in a separate application
@@ -27,7 +29,7 @@ Feedback, comments and questions are welcome at bj [dot] neilsen [at] gmail [dot
   s.required_rubygems_version = '>= 1.3.6'
   s.rubyforge_project         = 'resque-remote'
 
-  s.add_dependency 'resque', '~> 1.0'
+  s.add_dependency 'resque', '< 2.0'
 
   s.add_development_dependency 'bundler', '~> 1.0'
   s.add_development_dependency 'rspec', '~> 2.8'
