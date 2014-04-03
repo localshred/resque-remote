@@ -5,6 +5,7 @@ Gem::Specification.new do |s|
   s.name        = 'resque-remote'
   s.version     = Resque::Plugins::Remote::VERSION
   s.platform    = Gem::Platform::RUBY
+  s.license     = 'WTFPL'
   s.authors     = ['BJ Neilsen']
   s.email       = ['bj.neilsen@gmail.com']
   s.homepage    = 'http://github.com/localshred/resque-remote'
